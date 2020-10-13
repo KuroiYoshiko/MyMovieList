@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="mymovielistDB.db" />
+    <None Remove="tlo_czarne.jpg" />
+    <None Remove="wklej_zdj.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="mymovielistDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="3.1.3" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.112" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112.1" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.112.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="tlo_czarne.jpg" />
+    <Resource Include="wklej_zdj.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="db_localDataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>db_localDataSet1.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="db_localDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_localDataSet1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

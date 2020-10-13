@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="MyMovieList.UserControlFilm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyMovieList"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+                         Height="535" Width="1020">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="tlo_czarne.jpg"/>
+        </Grid.Background>
+
+        <ListView x:Name="ListViewClose" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Top" HorizontalAlignment="Right" Height="31" Width="31" SelectionChanged="ListViewClose_SelectionChanged">
+            <ListViewItem x:Name="CloseBttn">
+                <StackPanel TextBlock.Foreground="#FF959595">
+                    <materialDesign:PackIcon Kind="Close" Width="15" Height="15" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListViewItem>
+        </ListView>
+
+        <Image x:Name="MoviePoster" HorizontalAlignment="Left" Height="329" Margin="25,25,0,0" VerticalAlignment="Top" Width="248" Source="wklej_zdj.jpg" Stretch="UniformToFill"/>
+        <Label x:Name="MovieTitleLabel" Content="Movie title" HorizontalAlignment="Left" Margin="305,25,0,0" VerticalAlignment="Top" FontSize="30" Foreground="White"/>
+        <Label Content="Year of production:" HorizontalAlignment="Left" Margin="305,90,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label x:Name="YearLabel" Content="2020" HorizontalAlignment="Left" Margin="444,90,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label Content="Genre:" HorizontalAlignment="Left" Margin="305,118,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <Label x:Name="GenreLabel" Content="Horror" HorizontalAlignment="Left" Margin="361,118,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+        <TextBlock x:Name="DescriptionTextBox" HorizontalAlignment="Left" Margin="305,164,0,0" Text="description" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="88" Width="678" FontSize="15"/>
+
+        <Grid Margin="305 250 0 0" x:Name="ReviewGrid" Visibility="Collapsed">
+            <Label Content="Your rate:            / 10" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+            <Label x:Name="YourRate" Content="10" HorizontalAlignment="Left" Margin="84,0,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+            <Label Content="Review:" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="15" Foreground="White"/>
+            <TextBlock x:Name="ReviewTextBox" HorizontalAlignment="Left" Margin="0,70,0,0" Text="Review" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="88" Width="678" FontSize="15"/>
+        </Grid>
+        <Button x:Name="DeleteMovie" Content="Delete from your list" HorizontalAlignment="Left" Margin="25,493,0,0" VerticalAlignment="Top" Background="#FF212121" Foreground="#DD706565" BorderBrush="Black" Click="DeleteMovie_Click"/>
+        <Button x:Name="LoadToWatched" Content="Load into Watched" HorizontalAlignment="Left" Margin="25,436,0,0" VerticalAlignment="Top" Background="#FF212121" Foreground="#DD706565" BorderBrush="Black" Click="LoadToWatched_Click"/>
+
+        <Grid Margin="305 250 0 0" x:Name="AddReview_Grid" Visibility="collapsed">
+            <Label Content="Review this movie..." Foreground="White" FontSize="18"/>
+            <Button x:Name="SubmitNewReview" Content="Submit review" HorizontalAlignment="Left" Margin="584,237,0,0" VerticalAlignment="Top" Background="#FF212121" Foreground="#DD706565" BorderBrush="Black" IsEnabled="false" Click="SubmitNewReview_Click" Cursor="Hand"/>
+            <Label Content="Rate movie" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="15"/>
+            <ComboBox x:Name="RateBox" HorizontalAlignment="Left" Margin="200,38,0,0" Width="54" Background="#FF5B5B5B" VerticalAlignment="Top" SelectionChanged="RateBox_SelectionChanged">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="1.5"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="2.5"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="3.5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="4.5"/>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="5.5"/>
+                <ComboBoxItem Content="6"/>
+                <ComboBoxItem Content="6.5"/>
+                <ComboBoxItem Content="7"/>
+                <ComboBoxItem Content="7.5"/>
+                <ComboBoxItem Content="8"/>
+                <ComboBoxItem Content="8.5"/>
+                <ComboBoxItem Content="9"/>
+                <ComboBoxItem Content="9.5"/>
+                <ComboBoxItem Content="10"/>
+            </ComboBox>
+            <Label Content="Review" HorizontalAlignment="Left" Margin="200,71,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="15"/>
+            <TextBox x:Name="ReviewBox" HorizontalAlignment="Left" Margin="200,99,0,0" Text="Your review here" TextWrapping="Wrap" VerticalAlignment="Top" Width="379" Foreground="White" Background="#FF5B5B5B" Height="170"/>
+            <Label Content="/ 10" HorizontalAlignment="Left" Margin="259,37,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="15"/>
+        </Grid>
+    </Grid>
+</UserControl>
